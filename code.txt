@@ -1,0 +1,59 @@
+/**program 1
+program in juava to calculate the monthly telephone bill using the class Telcall
+coded by - Soumyajit Paul**/
+
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+class Telcall
+{
+    long phno;
+    String name;
+    int n;
+    double amt;
+
+    Telcall(long x,String y,int z)
+    { 
+        phno=x;
+        name=y;
+        n=z;
+        amt=0.0;
+    }
+
+    void compute()
+    {
+        if(n>=1 && n<=100)
+            amt=500;
+        else if(n>=101 && n<=200)
+            amt=n*1+500;
+        else if(n>=201 && n<=300)
+            amt=n*1.20+500;
+        else if(n>300)
+            amt=n*1.50+500;
+    }
+
+    void display()
+    {
+        System.out.println("phone number"+"\t"+"name"+"\t"+"\t"+"total calls"+"\t"+"amount");
+        System.out.println(phno+"\t"+name+"\t"+n+"\t"+"\t"+amt);
+    }
+
+    public static void main()throws IOException
+    {
+        BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("PLEASE ENTER THE PHONE NUMBER");
+        long a=Long.parseLong(in.readLine());
+        System.out.println("PLEASE ENTER THE NAME");
+        String b=in.readLine();
+        System.out.println("PLEASE ENTER THE NUMBER OF CALLS MADE BY YOU");
+        int c=Integer.parseInt(in.readLine());
+        Telcall ob=new Telcall(a,b,c);
+        ob.compute();
+        System.out.println("HERE IS THE AMOUNT YOU ARE REQUIRED TO PAY");
+        ob.display();
+        System.out.println("THANK YOU FOR YOUR COOPERATION");
+    }
+}
+
+  
